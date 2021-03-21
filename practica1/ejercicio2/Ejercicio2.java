@@ -1,15 +1,17 @@
 package practica1.ejercicio2;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Ejercicio2 {
     
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(getNMultiplosDeN(5)));
-        System.out.println(Arrays.toString(getNMultiplosDeN(2)));
-        System.out.println(Arrays.toString(getNMultiplosDeN(6)));
-        System.out.println(Arrays.toString(getNMultiplosDeN(4)));
-        System.out.println(Arrays.toString(getNMultiplosDeN(10)));
+        Scanner scanner = new Scanner(System.in);
+
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Numero: ");
+            System.out.println("N multiplos de N: " + Arrays.toString(getNMultiplosDeN(scanner.nextInt())));
+        }
     }
 
     public static int[] getNMultiplosDeN(int n) {
