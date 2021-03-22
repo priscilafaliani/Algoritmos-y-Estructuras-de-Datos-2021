@@ -1,4 +1,4 @@
-package practica2.resources.ListasDeEnteros.src.tp02.ejercicio1;
+package tp02.ejercicio1;
 
 
 public class ListaDeEnterosEnlazada extends ListaDeEnteros {
@@ -33,6 +33,39 @@ public class ListaDeEnterosEnlazada extends ListaDeEnteros {
 		while (pos-- > 1)
 			n = n.getSiguiente();
 		return n.getDato();
+	}
+
+	private static int calcular(int n) {
+		if (n < 1) return Integer.MIN_VALUE;
+
+		if (n > 1) {
+			n = n % 2 == 0 ? (n / 2) : (n * 3 + 1); 
+		}
+
+		return n;
+	}
+
+	public static ListaDeEnterosEnlazada sucesion(int n) {
+
+		ListaDeEnterosEnlazada l;
+
+		l = n > 1 ? sucesion(calcular(n)) : new ListaDeEnterosEnlazada();
+
+		if (n == 1) {
+			l.agregarInicio(1);
+		} else {
+			l.agregarInicio(n);
+		}
+
+		return l;
+	}
+
+	public static void main(String[] args) {
+		ListaDeEnteros l2 = sucesion(6);
+
+		for (int i = 1; i <= l2.tamanio(); i++) {
+			System.out.print(l2.elemento(i) + " ");
+		}
 	}
 
 	@Override

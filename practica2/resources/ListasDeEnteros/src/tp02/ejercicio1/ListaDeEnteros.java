@@ -1,4 +1,4 @@
-package practica2.resources.ListasDeEnteros.src.tp02.ejercicio1;
+package tp02.ejercicio1;
 
 public abstract class ListaDeEnteros {
 	
