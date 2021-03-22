@@ -1,4 +1,4 @@
-package tp02.ejercicio2;
+package practica2.resources.ListasGenericas.src.tp02.ejercicio2;
 
 /**
  * ListaDeEnteros es una clase abstracta que define los métodos que deberán
