@@ -1,6 +1,10 @@
 package practica1.ejercicio5;
 
 public class Ejercicio5 {
+
+    private int max;
+    private int min;
+    private int promedio;
     
     public static void main(String[] args) {
         int[] numeros = {1, 2, 3, 10, -1, 24, 15, 22};
@@ -43,7 +47,7 @@ public class Ejercicio5 {
         datos.setPromedio(promedio / numeros.length);
     }
 
-    public static void funcionV3(int[] numeros) {
+    public void funcionV3(int[] numeros) {
         int max = Integer.MIN_VALUE;
         int min = Integer.MAX_VALUE;
         double promedio = 0;
@@ -54,6 +58,9 @@ public class Ejercicio5 {
             if (n < min) min = n;
         }
 
-        System.out.println(new Datos(max, min, promedio / numeros.length).toString());
+        // System.out.println(new Datos(max, min, promedio / numeros.length).toString());
+        this.min = min;
+        this.max = max;
+        this.promedio = promedio / numeros.length
     }
 }
