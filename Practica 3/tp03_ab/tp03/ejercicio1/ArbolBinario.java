@@ -2,6 +2,7 @@ package tp03.ejercicio1;
 
 import tp02.ejercicio2.ListaEnlazadaGenerica;
 import tp02.ejercicio2.ListaGenerica;
+import tp02.ColaGenerica;
 
 public class ArbolBinario<T> {
 	private T dato;
@@ -146,6 +147,35 @@ public class ArbolBinario<T> {
 		return a;
 	}
 
+	public void entreNiveles(int n, int m) {
+
+		ColaGenerica<ArbolBinario<T>> cola = new ColaGenerica<>(new ListaEnlazadaGenerica<>());
+		cola.encolar(this);
+
+		int nivel = 0;
+		while (!cola.esVacia()) {
+			ArbolBinario<T> actual = cola.desencolar();
+
+			if (nivel > m) {
+				break;
+			}
+
+			if (nivel >= n) {
+				System.out.println(actual.getDato());
+			}
+
+
+			if (actual.tieneHijoDerecho()) {
+				cola.encolar(actual.getHijoDerecho());
+			}
+			if (actual.tieneHijoIzquierdo()) {
+				cola.encolar(actual.getHijoIzquierdo());
+			}
+
+			nivel++;
+		}
+
+	}
 	
 
 }
