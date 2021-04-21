@@ -8,19 +8,26 @@ public class Estudiante extends Persona {
         this.direccion = direccion;
     }
 
-    public String getCatedra() {
-        return this.catedra;
+    public String getComision() {
+        return this.comision;
     }   
 
-    public String getFacultad() {
-        return this.facultad;
+    public String getDireccion() {
+        return this.direccion;
     }
 
-    public void setCatedra(String catedra) {
-        this.catedra = catedra;
+    public void setComision(String comision) {
+        this.comision = comision;
     }
 
-    public void setFacultad(String facultad) {
-        this.facultad = facultad;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\n" +
+            "Comisión: " + getComision() + "\n" +
+            "Dirección: " + getDireccion();
     }
 }
