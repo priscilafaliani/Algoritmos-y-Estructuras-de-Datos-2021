@@ -1,6 +1,3 @@
-package tp02.ejercicio1;
-
-
 public class ListaDeEnterosEnlazada extends ListaDeEnteros {
 	private NodoEntero inicio;
 	private NodoEntero actual;

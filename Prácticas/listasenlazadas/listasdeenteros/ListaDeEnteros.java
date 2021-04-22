@@ -1,5 +1,3 @@
-package tp02.ejercicio1;
-
 public abstract class ListaDeEnteros {
 	
 	public abstract void comenzar();

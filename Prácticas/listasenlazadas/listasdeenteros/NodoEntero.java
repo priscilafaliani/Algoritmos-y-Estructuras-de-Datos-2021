@@ -1,5 +1,3 @@
-package tp02.ejercicio1;
-
 public class NodoEntero {
 	private Integer dato;
 	private NodoEntero siguiente;
