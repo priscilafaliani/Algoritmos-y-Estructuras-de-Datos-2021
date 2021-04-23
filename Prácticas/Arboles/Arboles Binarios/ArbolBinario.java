@@ -35,7 +35,6 @@ public class ArbolBinario<T> {
 
 	public ArbolBinario<T> getHijoDerecho() {
 		return this.hijoDerecho;
-
 	}
 
 	public void agregarHijoIzquierdo(ArbolBinario<T> hijo) {
@@ -60,7 +59,6 @@ public class ArbolBinario<T> {
 
 	public boolean esHoja() {
 		return (!this.tieneHijoIzquierdo() && !this.tieneHijoDerecho());
-
 	}
 
 	@Override
@@ -68,12 +66,105 @@ public class ArbolBinario<T> {
 		return this.getDato().toString();
 	}
 
+	// LLENO -> tiene 2^(h+1)-1 hijos
 	public boolean esLleno() {
-		return false;
+		Queue<ArbolBinario<T>> queue = new Queue<>(new ListaEnlazadaGenerica<>());
+
+		queue.enqueue(this);
+		queue.enqueue(null);
+
+		int nivel = 0;
+		int nodos_nivel = 0;
+		while (!queue.isEmpty()) {
+			ArbolBinario<T> curr = queue.dequeue();
+
+			if (curr != null) {
+				nodos_nivel++;
+
+				if (curr.tieneHijoIzquierdo()) {
+					queue.enqueue(curr.getHijoIzquierdo());
+				}
+
+				if (curr.tieneHijoDerecho()) {
+					queue.enqueue(curr.getHijoDerecho());
+				}
+			} else {
+				if (Math.pow(2, nivel) != nodos_nivel) {
+					return false;
+				}
+				nivel++;
+				nodos_nivel = 0;
+				if (!queue.isEmpty()) {
+					queue.enqueue(null);
+				}
+			}
+		}
+		return true;
 	}
 
-	 boolean esCompleto() {
-		return false;
+	// LLENO -> tiene 2^(h+1)-1 hijos
+	public boolean esLleno2() {
+		Queue<ArbolBinario<T>> queue = new Queue<>(new ListaEnlazadaGenerica<>());
+
+		queue.enqueue(this);
+
+		boolean flag = false;
+		while (!queue.isEmpty()) {
+			ArbolBinario<T> curr = queue.dequeue();
+
+			if (curr.tieneHijoIzquierdo()) {
+				if (flag) {
+					return false;
+				}
+
+				queue.enqueue(curr.getHijoIzquierdo());
+			}
+
+			if (curr.tieneHijoDerecho()) {
+				if (flag) {
+					return false;
+				}
+
+				queue.enqueue(curr.getHijoDerecho());
+			}
+
+			if (curr.esHoja()) {
+				flag = true;
+			}
+		}
+		return true;
+	}
+
+	// COMPLETO -> es lleno de altura h - 1 y en h se llena de izquierda a derecha
+	boolean esCompleto() {
+		Queue<ArbolBinario<T>> queue = new Queue<>(new ListaEnlazadaGenerica<>());
+		queue.enqueue(this);
+
+		boolean flag = false;
+		while (!queue.isEmpty()) {
+			ArbolBinario<T> curr = queue.dequeue();
+
+			if (curr.tieneHijoIzquierdo()) {
+				if (flag) {
+					return false;
+				}
+				
+				queue.enqueue(curr.getHijoIzquierdo());
+			} else {
+				flag = true;
+			}
+
+			if (curr.tieneHijoDerecho()) {
+				if (flag) {
+					return false;
+				}
+
+				queue.enqueue(curr.getHijoDerecho());
+			} else {
+				flag = true;
+			}
+		}
+		return true;
 	}
 
 	// imprime el árbol en inorden
