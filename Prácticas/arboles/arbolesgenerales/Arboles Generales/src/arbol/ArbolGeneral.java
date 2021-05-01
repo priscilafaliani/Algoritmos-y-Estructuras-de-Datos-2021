@@ -272,11 +272,38 @@ public class ArbolGeneral<T> {
 		return nodosNivel > ancho ? nodosNivel : ancho;
 	}
 
+	public ListaEnlazadaGenerica<T> obtenerCamino(T dato) {
+		ListaEnlazadaGenerica<T> lista = new ListaEnlazadaGenerica<>();
+
+		// si encontró el dato o llego al final del camino
+		if (this.getDato() == dato || this.esHoja()) {
+
+			// si encontró el dato, se retorna en la lista
+			if (this.getDato() == dato) {
+				lista.agregarFinal(this.getDato());
+			}
+
+			return lista;
+		}
+
+		// si no, tenemos que recorrer todos los caminos que queden
+		// mientras no encontremos el dato y mientras hayan caminos
+		this.getHijos().comenzar();
+		while (!this.getHijos().fin() && lista.esVacia()) {
+			lista = this.getHijos().proximo().obtenerCamino(dato);
+
+			// se encontró el dato en el camino 
+			if (!lista.esVacia()) {
+				lista.agregarInicio(this.getDato());
+			}
+		}
+
+		return lista;
+	}
+
 	public boolean esAncestro(T a, T b) {
-		
-		
-		
-		return false;
+		ListaEnlazadaGenerica<T> camino = obtenerCamino(b);
+		return !camino.esVacia() && camino.incluye(a);
 	}
 
 
