@@ -69,6 +69,32 @@ public class RedBinariallena {
 
     }
 
+    public void setArbol(ArbolBinario<Integer> root) {
+        this.root = root;
+    }
+
+    public int retardoReenvioPiola() {
+        if (root.esVacio()) return 0;
+
+        ArbolBinario<Integer> HI = root.getHijoIzquierdo();
+        ArbolBinario<Integer> HD = root.getHijoDerecho();
+
+        int retardoIzq = root.getDato();
+        int retardoDer = root.getDato();
+
+        if (HI != null) {
+            setArbol(HI);
+            retardoIzq += this.retardoReenvioPiola();
+        }
+
+        if (HD != null) {
+            setArbol(HD);
+            retardoDer += this.retardoReenvioPiola();
+        }
+
+        return Math.max(retardoIzq, retardoDer);
+    }
+
     public int retardoReenvio() {
         ArbolBinario<Integer> aux = root;
         return _retardoReenvio(aux);
