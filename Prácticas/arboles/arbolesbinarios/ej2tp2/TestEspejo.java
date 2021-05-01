@@ -1,5 +1,5 @@
-public class TestContarHojas {
-    
+package arboles.arbolesbinarios.ej2tp2;
+public class TestEspejo {
     public static void main(String[] args) {
         ArbolBinario<Integer> root = new ArbolBinario<>(0);
 
@@ -24,15 +24,11 @@ public class TestContarHojas {
         ArbolBinario<Integer> rightChildRightChild = new ArbolBinario<>(6);
 
         // agrego hijos del hijo derecho
-
-        // si no agrego hijos de los hijos, root.contarHojas() == 3
         rootRightChild.agregarHijoIzquierdo(rightChildLeftChild);
         rootRightChild.agregarHijoDerecho(rightChildRightChild); 
 
         
         // agrego a raiz
-
-        // si quito uno de los hijos, root.contarHojas() == 2
         root.agregarHijoDerecho(rootRightChild);
         root.agregarHijoIzquierdo(rootLeftChild);
 
@@ -43,9 +39,13 @@ public class TestContarHojas {
         //  / \     / \
         // 3   4   5   6
         // 
-        // root.contarHojas() == 4...
+        System.out.println("Arbol al comenzar");
+        root.printNiveles();
+        System.out.println("\n");
 
-        System.out.println(root.contarHojas());
+        System.out.println("Version invertida");
+        ArbolBinario<Integer> invertido = root.espejo();
+        invertido.printNiveles();
+        System.out.println("\n");
     }
-
 }

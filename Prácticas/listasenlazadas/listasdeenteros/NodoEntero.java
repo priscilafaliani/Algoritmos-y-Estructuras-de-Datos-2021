@@ -1,3 +1,5 @@
+package listasenlazadas.listasdeenteros;
+
 public class NodoEntero {
 	private Integer dato;
 	private NodoEntero siguiente;

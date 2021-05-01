@@ -1,3 +1,4 @@
+package arboles.arbolesbinarios.ej3tp2;
 public class ContadorArbol {
     private ArbolBinario<Integer> a;
 

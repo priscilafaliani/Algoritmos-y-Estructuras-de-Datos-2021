@@ -1,3 +1,5 @@
+package listasenlazadas.listasdeenteros;
+
 public class ListaDeEnterosEnlazada extends ListaDeEnteros {
 	private NodoEntero inicio;
 	private NodoEntero actual;

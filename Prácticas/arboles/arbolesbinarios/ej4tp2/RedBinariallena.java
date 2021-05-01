@@ -1,6 +1,16 @@
-public class TestProfundidad {
-    public static void main(String[] args) {
-        ArbolBinario<Integer> root = new ArbolBinario<>(0);
+package arboles.arbolesbinarios.ej4tp2;
+public class RedBinariallena {
+
+    private ArbolBinario<Integer> root;
+
+    // dummy constructor for testing
+    public RedBinariallena() {
+        makeTree();
+    }
+
+    // makes a full tree
+    public void makeTree() {
+        root = new ArbolBinario<>(0);
         // hijo izquierdo de la raiz
         ArbolBinario<Integer> uno1 = new ArbolBinario<>(1);
 
@@ -57,9 +67,27 @@ public class TestProfundidad {
         //  / \     / \     / \     / \
         // 7  11   8   10  12   1   10 10
 
-        ProfundidadDeArbolBinario p = new ProfundidadDeArbolBinario(root);
+    }
 
-        //18
-        System.out.println(p.sumaElementosProfundidad(5));
+    public int retardoReenvio() {
+        ArbolBinario<Integer> aux = root;
+        return _retardoReenvio(aux);
+    }
+
+    public int _retardoReenvio(ArbolBinario<Integer> a) {
+        if (a.esVacio()) return 0;
+
+        int caminoIzq = a.getDato();
+        int caminoDer = a.getDato();
+
+        if (a.tieneHijoIzquierdo()) {
+            caminoIzq += _retardoReenvio(a.getHijoIzquierdo());
+        }
+
+        if (a.tieneHijoDerecho()) {
+            caminoDer += _retardoReenvio(a.getHijoDerecho());
+        }
+
+        return Math.max(caminoIzq, caminoDer);
     }
 }

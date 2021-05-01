@@ -1,3 +1,5 @@
+package listasenlazadas.listasgenericas;
+
 /**
  * ListaDeEnteros es una clase abstracta que define los métodos que deberán
  * implementar todas aquellas clases que quieran representar una coleccion de

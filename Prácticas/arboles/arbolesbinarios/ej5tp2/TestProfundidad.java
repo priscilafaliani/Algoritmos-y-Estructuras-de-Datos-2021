@@ -1,4 +1,5 @@
-public class TestLlenoCompleto {
+package arboles.arbolesbinarios.ej5tp2;
+public class TestProfundidad {
     public static void main(String[] args) {
         ArbolBinario<Integer> root = new ArbolBinario<>(0);
         // hijo izquierdo de la raiz
@@ -57,7 +58,9 @@ public class TestLlenoCompleto {
         //  / \     / \     / \     / \
         // 7  11   8   10  12   1   10 10
 
-        System.out.println("Es lleno?: " + root.esLleno());
-        System.out.println("Es completo?: " + root.esCompleto());
+        ProfundidadDeArbolBinario p = new ProfundidadDeArbolBinario(root);
+
+        //18
+        System.out.println(p.sumaElementosProfundidad(5));
     }
 }

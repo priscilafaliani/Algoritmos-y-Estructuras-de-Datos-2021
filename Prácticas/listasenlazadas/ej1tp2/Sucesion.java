@@ -1,3 +1,7 @@
+package listasenlazadas.ej1tp2;
+
+import listasenlazadas.listasdeenteros.*;
+
 public class Sucesion {
 
     public static void main(String[] args) {

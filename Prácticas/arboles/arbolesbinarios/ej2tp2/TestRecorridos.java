@@ -1,3 +1,4 @@
+package arboles.arbolesbinarios.ej2tp2;
 public class TestRecorridos {
     public static void main(String[] args) {
         ArbolBinario<Integer> root = new ArbolBinario<>(0);

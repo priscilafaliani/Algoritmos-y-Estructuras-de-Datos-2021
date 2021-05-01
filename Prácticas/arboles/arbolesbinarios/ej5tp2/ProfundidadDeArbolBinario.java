@@ -1,3 +1,4 @@
+package arboles.arbolesbinarios.ej5tp2;
 public class ProfundidadDeArbolBinario {
     private ArbolBinario<Integer> root;
 

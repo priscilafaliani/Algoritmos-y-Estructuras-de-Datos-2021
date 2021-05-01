@@ -1,3 +1,6 @@
+package listasenlazadas.ej3tp2;
+import listasenlazadas.listasgenericas.ListaGenerica;
+
 public class Queue<T> {
     private ListaGenerica<T> queue;
 

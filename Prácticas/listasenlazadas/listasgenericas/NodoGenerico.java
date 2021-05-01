@@ -1,3 +1,5 @@
+package listasenlazadas.listasgenericas;
+
 /**
  * Esta clase representa un nodo de la lista enlazada.
  * */

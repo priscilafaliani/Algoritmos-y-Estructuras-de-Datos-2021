@@ -1,3 +1,5 @@
+package listasenlazadas.listasdeenteros;
+
 public class ListaDeEnterosConArreglos extends ListaDeEnteros {
 	private int tamanio;
 	private Integer[] datos = new Integer[30];

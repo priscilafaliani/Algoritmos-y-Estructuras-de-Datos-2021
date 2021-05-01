@@ -1,3 +1,9 @@
+package arboles.arbolesbinarios;
+
+
+import listasenlazadas.ej3tp2.Queue;
+import listasenlazadas.listasgenericas.*;
+
 public class ArbolBinario<T> {
 	private T dato;
 	private ArbolBinario<T> hijoIzquierdo;   
@@ -111,26 +117,7 @@ public class ArbolBinario<T> {
 		boolean flag = false;
 		while (!queue.isEmpty()) {
 			ArbolBinario<T> curr = queue.dequeue();
-
-			if (curr.tieneHijoIzquierdo()) {
-				if (flag) {
-					return false;
-				}
-
-				queue.enqueue(curr.getHijoIzquierdo());
-			}
-
-			if (curr.tieneHijoDerecho()) {
-				if (flag) {
-					return false;
-				}
-
-				queue.enqueue(curr.getHijoDerecho());
-			}
-
-			if (curr.esHoja()) {
-				flag = true;
-			}
+			
 		}
 		return true;
 	}

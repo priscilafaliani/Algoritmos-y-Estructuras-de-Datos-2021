@@ -1,4 +1,7 @@
+package listasenlazadas.ej1tp2;
+
 import java.util.Scanner;
+import listasenlazadas.listasdeenteros.ListaDeEnterosEnlazada;
 
 public class TestListaDeEnterosEnlazada {
     

@@ -1,5 +1,7 @@
+package listasenlazadas.listasdeenteros;
+
 public abstract class ListaDeEnteros {
-	
+
 	public abstract void comenzar();
 	public abstract Integer proximo();
 	public abstract boolean fin();

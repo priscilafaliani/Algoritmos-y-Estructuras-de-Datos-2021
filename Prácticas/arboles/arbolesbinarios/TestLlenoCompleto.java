@@ -1,15 +1,10 @@
-public class RedBinariallena {
+package arboles.arbolesbinarios;
 
-    private ArbolBinario<Integer> root;
 
-    // dummy constructor for testing
-    public RedBinariallena() {
-        makeTree();
-    }
 
-    // makes a full tree
-    public void makeTree() {
-        root = new ArbolBinario<>(0);
+public class TestLlenoCompleto {
+    public static void main(String[] args) {
+        ArbolBinario<Integer> root = new ArbolBinario<>(0);
         // hijo izquierdo de la raiz
         ArbolBinario<Integer> uno1 = new ArbolBinario<>(1);
 
@@ -53,8 +48,8 @@ public class RedBinariallena {
         ArbolBinario<Integer> diez2 = new ArbolBinario<>(10);
         ArbolBinario<Integer> diez3 = new ArbolBinario<>(10);
 
-        seis.agregarHijoIzquierdo(diez2);
-        seis.agregarHijoDerecho(diez3);
+        // seis.agregarHijoIzquierdo(diez2);
+        // seis.agregarHijoDerecho(diez3);
 
         root.agregarHijoDerecho(dos);
 
@@ -66,27 +61,7 @@ public class RedBinariallena {
         //  / \     / \     / \     / \
         // 7  11   8   10  12   1   10 10
 
-    }
-
-    public int retardoReenvio() {
-        ArbolBinario<Integer> aux = root;
-        return _retardoReenvio(aux);
-    }
-
-    public int _retardoReenvio(ArbolBinario<Integer> a) {
-        if (a.esVacio()) return 0;
-
-        int caminoIzq = a.getDato();
-        int caminoDer = a.getDato();
-
-        if (a.tieneHijoIzquierdo()) {
-            caminoIzq += _retardoReenvio(a.getHijoIzquierdo());
-        }
-
-        if (a.tieneHijoDerecho()) {
-            caminoDer += _retardoReenvio(a.getHijoDerecho());
-        }
-
-        return Math.max(caminoIzq, caminoDer);
+        System.out.println("Es lleno?: " + root.esLleno2());
+        System.out.println("Es completo?: " + root.esCompleto());
     }
 }
